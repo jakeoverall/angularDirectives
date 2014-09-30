@@ -27,6 +27,12 @@ These components allow us to reuse code within our project, and throughout other
 			// the template can take raw HTML, or a file path that leads to an HTML file.
 			// Like so:
 			template: app/views/directiveView.html,
+
+			controller: function($scope) { //We can create a controller in our directive!
+				$scope.test = 'OMG!';
+			},
+			//this allows us to a special controller that nothing else can touch. 
+			replace: true,
 		}
 
 	})
