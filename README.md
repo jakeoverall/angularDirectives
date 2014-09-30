@@ -2,7 +2,7 @@ angularDirecitves
 =================
 Angular allows us to create these great things called directives. Directives are essentially small pieces of functionality our app needs that can be bundled up into individual components. 
 
-These components allow us to reuse code within our project, and throughout other projects. Creating your own directives can be odd at first because we will be using alot of built in Angular functionality to do this. For now consider these things as autoMagical and then once you've created a few go look into how Angular is interpreting the directive.
+These components allow us to reuse code within our project, and throughout other projects. Creating your own directives can be odd at first because we will be using a lot of built in Angular functionality to do this. For now consider these things as autoMagical and then once you've created a few go look into how Angular is interpreting the directive.
 
 
 
@@ -118,11 +118,11 @@ Notice that we have removed ng-click because it is no longer necessary as we wil
 Now go ahead and setup the link block. This link block is very important when it comes to creating useful directives. It is through the link function that we ge access to three very important things the first is scope. 
 
 #####A note about scope
-When we talk about scope we are often refering to what block of code we are currently residing in and it is through scope that we have access to our variables and functions. What is important to understand when working with directives is that we often want to make sure we have an isolated scope so we know that our directive can be modular and not dependent upon a function or variable inside of a parent scope. The directive needs to hold all of its own functionality. This concept is not to be confused with being unable to use or take in functions or variables from a controller or parent scope and manipulate them. Think about ng-repeat="item in list" this is a directive that is taking in a $scope.variable called list and iterating through each item in that array therfore it must have access to the controller where $scope.list is defined. 
+When we talk about scope we are often refering to what block of code we are currently residing in and it is through scope that we have access to our variables and functions. What is important to understand when working with directives is that we often want to make sure we have an isolated scope so we know that our directive can be modular and not dependent upon a function or variable inside of a parent scope. The directive needs to hold all of its own functionality. This concept is not to be confused with being unable to use or take in functions or variables from a controller or parent scope and manipulate them. Think about ng-repeat="item in list" this is a directive that is taking in a $scope.variable called list and iterating through each item in that array therefore it must have access to the controller where $scope.list is defined. 
 
 Using scope appropriately and understanding how far down a scope tree you are can be confusing and difficult so it is okay to struggle with this concept. 
 
-Next we pass in element, or elem. This is the actual DOM element where we added our attribute pending. It is through the element that we can perform DOM manipulation in a way that might look and feel familar to JQuery. The last thing we pass in will be attributes or attr/attrs. This gives us access to the attributes that are on the element.
+Next we pass in element, or elem. This is the actual DOM element where we added our attribute pending. It is through the element that we can perform DOM manipulation in a way that might look and feel familiar to JQuery. The last thing we pass in will be attributes or attr/attrs. This gives us access to the attributes that are on the element.
 
 ````javascript
 	link: function(scope, elem, attrs){
@@ -150,7 +150,7 @@ Inside our link block we can write the code necessary to show our pending spinne
 
 Now that you have a super cool directive that you can drop in anytime you need to make a call to a server lets make another directive that will be just as reusable as the last. Make sure you look up Html5 Notifications. They are built into most modern browsers and can therefore be very helpful for notifying us when an event occurs. Think of DevQueue wouldn't it be nice if Mentors got a small notification whenever a student enters the Queue? With this directive we should be able to accomplish that task fairly easily. 
 
-Go ahead and setup a brand new directive and lets call it 'notify'. The setup here will be alot like our pending directive however the link function will be what changes. Follow the same process as before and then put this in as a freebie at the top of your link function. Although most modern browsers have built in notifications and they pretty much all function the same way they are not stored in the same location on the window so we are going to setup a simple or statement that will help make sure we are using the correct notification for each browser. Because it would be annoying for any site to give you popup notifications without your consent users have to grant permission to recieve notifications. This permission is saved as a cookie so it will remember the setting each time you go to the site. Because it uses Cookies make sure you use something like http-server when testing. 
+Go ahead and setup a brand new directive and lets call it 'notify'. The setup here will be alot like our pending directive however the link function will be what changes. Follow the same process as before and then put this in as a freebie at the top of your link function. Although most modern browsers have built in notifications and they pretty much all function the same way they are not stored in the same location on the window so we are going to setup a simple or statement that will help make sure we are using the correct notification for each browser. Because it would be annoying for any site to give you popup notifications without your consent users have to grant permission to receive notifications. This permission is saved as a cookie so it will remember the setting each time you go to the site. Because it uses Cookies make sure you use something like http-server when testing. 
 
 ````javascript
 	var Notification = window.Notification || window.mozNotification || window.webkitNotification;
@@ -158,14 +158,14 @@ Go ahead and setup a brand new directive and lets call it 'notify'. The setup he
 				//console.log(permission);
 			});
 ````
-Moving right along if you look console.log(Notification) you would see that in each of these browsers Notification is a constructor. Remember in Js constructors use an initial capital letter. This means that for each notification we will be creating an 'new Notification()' instance. This constructor is setup to take in two parameters a string for its title and then an object with the rest of its properties. (title, {body: '', icon: ''}). Practice getting these notifications to work first with some hardcoded values, then think about what you have learned to pass in variables that are on $scope from your controller. 
+Moving right along if you look console.log(Notification) you would see that in each of these browsers Notification is a constructor. Remember in Js constructors use an initial capital letter. This means that for each notification we will be creating an 'new Notification()' instance. This constructor is setup to take in two parameters a string for its title and then an object with the rest of its properties. (title, {body: '', icon: ''}). Practice getting these notifications to work first with some hard coded values, then think about what you have learned to pass in variables that are on $scope from your controller. 
 
 *Hints
 
 + Utilize scope {title: '=', body: '=', icon: '='}
 + Remember to setup your Html with the correct naming conventions
 + Create a function that can be called on elem.click()
-+ Use a callback in elem.click() to pass your params to the Notification Contructor
++ Use a callback in elem.click() to pass your params to the Notification Constructor
 + Again This will be difficult don't give up. Tackle one problem at a time. Use your resources.
 
 
