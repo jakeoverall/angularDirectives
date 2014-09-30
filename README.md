@@ -32,7 +32,17 @@ These components allow us to reuse code within our project, and throughout other
 				$scope.test = 'OMG!';
 			},
 			//this allows us to a special controller that nothing else can touch. 
-			replace: true, //If we are using a template, we can choose to insert it's value wherever we call the directive.
+			replace: true, //If we are using a template, we can choose to 
+			//insert it's value wherever we call the directive.
+			    link: function(scope, elem, attr) {
+		      // scope is the directive's scope,
+		      // elem is a jquery lite (or jquery full) object for the directive root element.
+		      // attr is a dictionary of attributes on the directive element.
+		      elem.bind('dblclick', function() {
+		        scope.name += '!';
+		        scope.$apply();
+		      });
+		    }
 		}
 
 	})
