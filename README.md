@@ -12,6 +12,6 @@ These components allow us to reuse code within our project, and throughout other
 	var app = angular.module('NAME-OF-APP', []);
 
 	app.directive('nameOfDirective', function() {
-		//
+		//our directive's name 'nameOfDirective' will be parsed to show up as 'name-of-directive' in our HTML.
 	})
 ````
