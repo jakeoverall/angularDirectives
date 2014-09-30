@@ -22,7 +22,12 @@ These components allow us to reuse code within our project, and throughout other
 			restrict: 'EA',
 			scope: {
 				name: '=name' //The name of the directives scope and be set
-			}				  //in the name attribute on the directive's element.
+			},				  //in the name attribute on the directive's element.
+			template: '<div><h1>Hello World</h1></div>', 
+			// the template can take raw HTML, or a file path that leads to an HTML file.
+			// Like so:
+			template: app/views/directiveView.html,
 		}
+
 	})
 ````
