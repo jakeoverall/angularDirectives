@@ -32,7 +32,7 @@ These components allow us to reuse code within our project, and throughout other
 				$scope.test = 'OMG!';
 			},
 			//this allows us to a special controller that nothing else can touch. 
-			replace: true,
+			replace: true, //If we are using a template, we can choose to insert it's value wherever we call the directive.
 		}
 
 	})
