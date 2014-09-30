@@ -14,5 +14,15 @@ These components allow us to reuse code within our project, and throughout other
 	app.directive('nameOfDirective', function() {
 		//our directive's name 'nameOfDirective' will be 
 		//parsed to show up as 'name-of-directive' in our HTML.
+
+		return {
+			//you have 4 restrict options. You can use any of the 4 in any combonation.
+			//{'E': 'Element', 'A': 'Attribute', 'C': 'Class', 'M': 'Comment'}
+			//typically we create them as Elements or Attributes.
+			restrict: 'EA',
+			scope: {
+				name: '=name' //The name of the directives scope and be set
+			}				  //in the name attribute on the directive's element.
+		}
 	})
 ````
