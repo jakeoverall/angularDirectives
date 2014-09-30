@@ -26,7 +26,7 @@ These components allow us to reuse code within our project, and throughout other
 			template: '<div><h1>Hello World</h1></div>', 
 			// the template can take raw HTML, or a file path that leads to an HTML file.
 			// Like so:
-			template: app/views/directiveView.html,
+			templateUrl: 'app/views/directiveView.html',
 
 			controller: function($scope) { //We can create a controller in our directive!
 				$scope.test = 'OMG!';
@@ -39,8 +39,7 @@ These components allow us to reuse code within our project, and throughout other
 		      // elem is a jquery lite (or jquery full) object for the directive root element.
 		      // attr is a dictionary of attributes on the directive element.
 		      elem.bind('dblclick', function() {
-		        scope.name += '!';
-		        scope.$apply();
+
 		      });
 		    }
 		}
